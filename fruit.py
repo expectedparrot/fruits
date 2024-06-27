@@ -48,6 +48,7 @@ q_infer = QuestionList(question_text = """A person described their preferences o
 
 results_inference = q_infer.by(new_scenario).run()
 
+
 # Compare to what the agent did to what we would expect with random guessing
 def levenshtein_distance(list1, list2):
     """Compute the Levenshtein distance (edit distance) between two lists."""
@@ -67,9 +68,18 @@ def levenshtein_distance(list1, list2):
 
     return dp[n][m]
 
-distances = [levenshtein_distance(inferred, actual) 
-             for inferred, actual in results_inference.select("inferred_preference", "true_preference").to_list()]
 
+_ = results_inference.mutate('distance = levenshtein_distance(inferred_preference, true_preference)', 
+                         functions_dict = {'levenshtein_distance': levenshtein_distance})
+
+
+
+(results_inference
+ .select("true_preference", "pref_paragraph", "inferred_preference", "distance")
+ .print(format = "markdown", filename="README.md")
+ )
+
+distances = results_inference.select("distance").to_list()
 average = sum(distances)/len(distances)
 print(f"Average Levenshtein distance: {average:.2f}")
 
