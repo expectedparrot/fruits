@@ -1,4 +1,4 @@
-| scenario.pref_paragraph | answer.inferred_preference | scenario.true_preference | answer.distance |
+| true_preference | pref_paragraph | inferred_preference | answer.distance |
 |--|--|--|--|
 | ['Fig', 'Banana', 'Lemon', 'Honeydew', 'Kiwi', 'Elderberry', 'Grape', 'Apple', 'Date', 'Cherry'] | I prefer sweet and unique flavors, especially those that are not too tart or acidic, with a fondness for tropical and Mediterranean varieties, while traditional, crisp ones or overly sweet and stone fruits are less appealing to me. | ['Fig', 'Banana', 'Date', 'Honeydew', 'Kiwi', 'Grape', 'Apple', 'Cherry', 'Elderberry', 'Lemon'] | 5 |
 | ['Date', 'Grape', 'Cherry', 'Apple', 'Fig', 'Lemon', 'Honeydew', 'Elderberry', 'Banana', 'Kiwi'] | I prefer sweet and chewy fruits, enjoy juicy and tart ones, but am not fond of overly mushy or tangy varieties. | ['Date', 'Fig', 'Grape', 'Cherry', 'Apple', 'Kiwi', 'Honeydew', 'Banana', 'Elderberry', 'Lemon'] | 6 |
